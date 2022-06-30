@@ -5,10 +5,16 @@
 		xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Astropix.MainWindow"
-        Title="Astropix">
-	<StackPanel>
-		<styles:Card Margin="16">
-			<TextBlock Classes="Headline6" Text="Hello world with Material.Avalonia!"/>
-		</styles:Card>
-	</StackPanel>
+        Title="Astropix" WindowStartupLocation="CenterScreen" Width="800" Height="500">
+	<ScrollViewer>
+		<StackPanel Margin="16">
+			<styles:Card>
+				<TextBlock Classes="Headline6" Text="Astronomy Picture of the Day"/>
+			</styles:Card>
+			<TextBlock Margin="16, 16, 0, 0" Classes="Headling6" FontSize="26" FontWeight="Bold" Text="Title"/>
+			<TextBlock Margin="16, 16, 0, 0" Classes="Headling6" FontSize="20" FontWeight="Normal" Text="Description"/>
+			<Image Margin="0, 16, 0, 0" Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia"/>
+			<Button Margin="0, 16, 0, 0" Content="Woah!"/>
+		</StackPanel>
+	</ScrollViewer>
 </Window>
