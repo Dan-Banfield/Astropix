@@ -11,10 +11,10 @@
 			<styles:Card>
 				<TextBlock Classes="Headline6" Text="Astronomy Picture of the Day"/>
 			</styles:Card>
-			<TextBlock Margin="16, 16, 0, 0" Classes="Headling6" FontSize="26" FontWeight="Bold" Text="Title"/>
-			<TextBlock Margin="16, 16, 0, 0" Classes="Headling6" FontSize="20" FontWeight="Normal" Text="Description"/>
-			<Image Margin="0, 16, 0, 0" Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia"/>
-			<Button Margin="0, 16, 0, 0" Content="Woah!"/>
+			<TextBlock x:Name="titleTextBlock" Margin="16, 16, 0, 0" Classes="Headling6" FontSize="26" FontWeight="Bold" Text="Title"/>
+			<TextBlock x:Name="descriptionTextBlock" Margin="16, 16, 0, 0" Classes="Headling6" FontSize="20" FontWeight="Normal" TextWrapping="Wrap" Text="Description"/>
+			<Image x:Name="image" Margin="0, 16, 0, 0" Source="resm:Avalonia.Skia.Assets.NoiseAsset_256X256_PNG.png?assembly=Avalonia.Skia"/>
+			<Button x:Name="woahButton" Margin="0, 16, 0, 0" Background="#424242" Foreground="White" Content="Woah!"/>
 		</StackPanel>
 	</ScrollViewer>
 </Window>
