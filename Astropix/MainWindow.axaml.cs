@@ -3,9 +3,12 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using Avalonia.Controls;
+using System.Diagnostics;
 using Avalonia.Markup.Xaml;
 using System.Threading.Tasks;
 using Avalonia.Media.Imaging;
+using Avalonia.Interactivity;
+using System.Runtime.InteropServices;
 
 namespace Astropix
 {
@@ -30,6 +33,7 @@ namespace Astropix
             {
                 UpdateTitle(apiResponse.title);
                 UpdateDescription(apiResponse.explanation);
+                this.FindControl<Button>("woahButton").Click += (object sender, RoutedEventArgs e) => OpenURL(apiResponse.hdurl);
                 SetAPODImage(apiResponse.hdurl);
                 return;
             }
@@ -82,6 +86,17 @@ namespace Astropix
 #pragma warning disable CS8603 // Possible null reference return.
             return JsonConvert.DeserializeObject<APIResponse>(json);
 #pragma warning restore CS8603 // Possible null reference return.
+        }
+
+        private void OpenURL(string url)
+        {
+            using (Process process = Process.Start(new ProcessStartInfo
+            {
+                FileName = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? url : "open",
+                Arguments = RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? $"-e {url}" : "",
+                CreateNoWindow = true,
+                UseShellExecute = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            })) ;
         }
 
         #region Designer Code
